@@ -1,0 +1,104 @@
+﻿@page "/"
+
+@rendermode InteractiveServer
+@using Syncfusion.Blazor
+@using Syncfusion.Blazor.Charts
+@using Syncfusion.Blazor.DropDowns
+
+<div class="control-section">
+    <label>Select Empty Point Mode: </label>
+    <SfDropDownList TValue="string" Placeholder="Drop" Width="20%" TItem="SelectionTypes" DataSource="@EmptyPointModeData">
+        <DropDownListEvents TValue="string" TItem="SelectionTypes" ValueChange="ChangeEmptyPointMode"></DropDownListEvents>
+        <DropDownListFieldSettings Value="Type"></DropDownListFieldSettings>
+    </SfDropDownList>
+
+    <SfChart Title="Data Consumption" Width="@Width" Theme="Theme.Bootstrap4">
+        <ChartArea><ChartAreaBorder Width="0"></ChartAreaBorder></ChartArea>
+        <ChartTooltipSettings Enable="true" Format="${point.x} : <b>${point.y}</b>"></ChartTooltipSettings>
+        <ChartLegendSettings EnableHighlight="true"></ChartLegendSettings>
+        <ChartPrimaryXAxis Minimum="new DateTime(2021, 11, 15)" Maximum="new DateTime(2021, 11, 24)" LabelFormat="dd MMM"
+                           ValueType="Syncfusion.Blazor.Charts.ValueType.DateTime" EdgeLabelPlacement="EdgeLabelPlacement.Shift">
+            <ChartAxisMajorGridLines Width="0"></ChartAxisMajorGridLines>
+            <ChartAxisLabelStyle FontStyle="bold"></ChartAxisLabelStyle>
+        </ChartPrimaryXAxis>
+        <ChartPrimaryYAxis LabelFormat="{value}MB" Minimum="0" Maximum="5" Interval="1">
+            <ChartAxisMajorTickLines Width="0"></ChartAxisMajorTickLines>
+            <ChartAxisLineStyle Width="0"></ChartAxisLineStyle>
+        </ChartPrimaryYAxis>
+        <ChartSeriesCollection>
+            <ChartSeries DataSource="@ChartPoints" Name="Andrew" XName="Period" Width="2"
+                         Opacity="0.5" YName="US_InflationRate" Type="ChartSeriesType.Area">
+                <ChartEmptyPointSettings Mode="@Mode"></ChartEmptyPointSettings>
+                <ChartSeriesBorder Width="2"></ChartSeriesBorder>
+                <ChartMarker IsFilled="true" Visible="true" Height="7" Width="7"></ChartMarker>
+            </ChartSeries>
+            <ChartSeries DataSource="@ChartPoints" Name="Thomas" XName="Period" Width="2"
+                         Opacity="0.5" YName="IN_InflationRate" Type="ChartSeriesType.Area">
+                <ChartEmptyPointSettings Mode="@Mode"></ChartEmptyPointSettings>
+                <ChartSeriesBorder Width="2"></ChartSeriesBorder>
+                <ChartMarker IsFilled="true" Visible="true" Height="7" Width="7" Shape="ChartShape.Diamond"></ChartMarker>
+            </ChartSeries>
+        </ChartSeriesCollection>
+    </SfChart>
+</div>
+
+@code {
+    public string Width { get; set; } = "90%";
+    private EmptyPointMode Mode { get; set; } = EmptyPointMode.Drop;
+
+    public List<AreaEmptyChartData> ChartPoints { get; set; } = new List<AreaEmptyChartData>
+    {
+        new AreaEmptyChartData { Period = new DateTime(2021, 11, 15), US_InflationRate = 2.2, IN_InflationRate = 0.8 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 11, 16), US_InflationRate = 2.0, IN_InflationRate = 1.7 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 11, 17), US_InflationRate = 2.8, IN_InflationRate = 1.8 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 11, 18), US_InflationRate = 1.6, IN_InflationRate = 2.1 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 11, 19), US_InflationRate = null, IN_InflationRate = null },
+        new AreaEmptyChartData { Period = new DateTime(2021, 11, 20), US_InflationRate = 2.5, IN_InflationRate = 2.3 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 11, 21), US_InflationRate = 2.9, IN_InflationRate = 1.7 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 11, 22), US_InflationRate = 1.1, IN_InflationRate = 1.5 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 11, 23), US_InflationRate = 1.4, IN_InflationRate = 0.5 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 11, 24), US_InflationRate = 1.1, IN_InflationRate = 1.3 }
+    };
+
+    public List<SelectionTypes> EmptyPointModeData { get; set; } = new List<SelectionTypes>
+    {
+        new SelectionTypes() { Type = EmptyPointMode.Drop.ToString() },
+        new SelectionTypes() { Type = EmptyPointMode.Average.ToString() },
+        new SelectionTypes() { Type = EmptyPointMode.Zero.ToString() },
+        new SelectionTypes() { Type = EmptyPointMode.Gap.ToString() }
+    };
+
+    private void ChangeEmptyPointMode(Syncfusion.Blazor.DropDowns.ChangeEventArgs<string, SelectionTypes> args)
+    {
+        if (args.Value.ToString().Equals(EmptyPointModeData[1].Type))
+        {
+            Mode = EmptyPointMode.Average;
+        }
+        else if (args.Value.ToString().Equals(EmptyPointModeData[2].Type))
+        {
+            Mode = EmptyPointMode.Zero;
+        }
+        else if (args.Value.ToString().Equals(EmptyPointModeData[0].Type))
+        {
+            Mode = EmptyPointMode.Drop;
+        }
+        else if (args.Value.ToString().Equals(EmptyPointModeData[3].Type))
+        {
+            Mode = EmptyPointMode.Gap;
+        }
+    }
+
+    public class SelectionTypes
+    {
+        public string Type { get; set; }
+    }
+
+    public class AreaEmptyChartData
+    {
+        public DateTime Period { get; set; }
+        public double? US_InflationRate { get; set; }
+        public double? IN_InflationRate { get; set; }
+    }
+}
+
+
