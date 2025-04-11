@@ -19,8 +19,8 @@ Four effective strategies for handling missing data: dropping null points, inter
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/Handling Missing Data in Blazor Charts: Strategies for Better Visualization.git
-cd Handling Missing Data in Blazor Charts: Strategies for Better Visualization
+git clone https://github.com/yourusername/Handling-Missing-Data-in-Blazor-Charts-Strategies-for-Better-Visualization.git
+cd Handling-Missing-Data-in-Blazor-Charts-Strategies-for-Better-Visualization
 ```
 
 ## Build and Run
