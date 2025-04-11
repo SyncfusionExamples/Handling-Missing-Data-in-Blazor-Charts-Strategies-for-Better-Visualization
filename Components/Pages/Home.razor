@@ -1,0 +1,142 @@
+﻿@page "/"
+
+@rendermode InteractiveServer
+@using Syncfusion.Blazor
+@using Syncfusion.Blazor.Charts
+@using Syncfusion.Blazor.DropDowns
+
+<div class="control-section">
+    <label>Select Empty Point Mode: </label>
+    <SfDropDownList TValue="string" Placeholder="Drop" Width="20%" TItem="SelectionTypes" DataSource="@EmptyPointModeData">
+        <DropDownListEvents TValue="string" TItem="SelectionTypes" ValueChange="ChangeEmptyPointMode"></DropDownListEvents>
+        <DropDownListFieldSettings Value="Type"></DropDownListFieldSettings>
+    </SfDropDownList>
+
+    <SfChart Title="US 5-Year Breakeven Inflation Rate (T5YIE) from May to July 2021" SubTitle="Source: Federal Reserve Bank of St. Louis via FRED" Width="@Width" Theme="Theme.Bootstrap4">
+        <ChartArea><ChartAreaBorder Width="0"></ChartAreaBorder></ChartArea>
+        <ChartTooltipSettings Enable="true" Format="${point.x} : <b>${point.y}</b>"></ChartTooltipSettings>
+        <ChartPrimaryXAxis Minimum="new DateTime(2021, 05, 13)" Maximum="new DateTime(2021, 07, 16)" LabelFormat="dd MMM"
+        ValueType="Syncfusion.Blazor.Charts.ValueType.DateTime" EdgeLabelPlacement="EdgeLabelPlacement.Shift">
+            <ChartAxisMajorGridLines Width="0"></ChartAxisMajorGridLines>
+            <ChartAxisLabelStyle FontStyle="bold"></ChartAxisLabelStyle>
+        </ChartPrimaryXAxis>
+        <ChartPrimaryYAxis Title="Percent" Minimum="@Minimum" Maximum="@Maximum" Interval="@Interval">
+            <ChartAxisMajorTickLines Width="0"></ChartAxisMajorTickLines>
+            <ChartAxisLineStyle Width="0"></ChartAxisLineStyle>
+        </ChartPrimaryYAxis>
+        <ChartSeriesCollection>
+            <ChartSeries DataSource="@ChartPoints" Name="US_InflationRate" XName="Period" Width="2"
+            Opacity="0.5" YName="US_InflationRate" Type="ChartSeriesType.Area">
+                <ChartEmptyPointSettings Mode="@Mode"></ChartEmptyPointSettings>
+                <ChartSeriesBorder Width="2"></ChartSeriesBorder>
+                <ChartMarker IsFilled="true" Visible="true" Height="7" Width="7"></ChartMarker>
+            </ChartSeries>
+        </ChartSeriesCollection>
+    </SfChart>
+</div>
+
+@code {
+    public string Width { get; set; } = "90%";
+    public double Minimum { get; set; } = 2.3;
+    public double Maximum { get; set; } = 2.8;
+    public double Interval { get; set; } = 0.1;
+    private EmptyPointMode Mode { get; set; } = EmptyPointMode.Drop;
+
+    public List<AreaEmptyChartData> ChartPoints { get; set; } = new List<AreaEmptyChartData>
+    {
+        new AreaEmptyChartData { Period = new DateTime(2021, 05, 13), US_InflationRate = 2.65 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 05, 14), US_InflationRate = 2.68 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 05, 17), US_InflationRate = 2.72 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 05, 18), US_InflationRate = 2.72 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 05, 19), US_InflationRate = 2.66 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 05, 20), US_InflationRate = 2.59 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 05, 21), US_InflationRate = 2.62 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 05, 24), US_InflationRate = 2.64 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 05, 25), US_InflationRate = 2.63 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 05, 26), US_InflationRate = 2.60 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 05, 27), US_InflationRate = 2.59 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 05, 28), US_InflationRate = 2.57 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 05, 31), US_InflationRate = null },
+        new AreaEmptyChartData { Period = new DateTime(2021, 06, 01), US_InflationRate = 2.60 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 06, 02), US_InflationRate = 2.59 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 06, 03), US_InflationRate = 2.56 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 06, 04), US_InflationRate = 2.54 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 06, 07), US_InflationRate = 2.51 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 06, 08), US_InflationRate = 2.47 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 06, 09), US_InflationRate = 2.41 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 06, 10), US_InflationRate = 2.47 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 06, 11), US_InflationRate = 2.43 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 06, 14), US_InflationRate = 2.44 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 06, 15), US_InflationRate = 2.46 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 06, 16), US_InflationRate = 2.41 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 06, 17), US_InflationRate = 2.31 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 06, 18), US_InflationRate = 2.37 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 06, 21), US_InflationRate = 2.41 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 06, 22), US_InflationRate = 2.46 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 06, 23), US_InflationRate = 2.49 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 06, 24), US_InflationRate = 2.45 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 06, 25), US_InflationRate = 2.46 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 06, 28), US_InflationRate = 2.45 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 06, 29), US_InflationRate = 2.46 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 06, 30), US_InflationRate = 2.47 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 07, 01), US_InflationRate = 2.49 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 07, 02), US_InflationRate = 2.49 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 07, 05), US_InflationRate = null },
+        new AreaEmptyChartData { Period = new DateTime(2021, 07, 06), US_InflationRate = 2.48 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 07, 07), US_InflationRate = 2.43 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 07, 08), US_InflationRate = 2.38 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 07, 09), US_InflationRate = 2.44 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 07, 12), US_InflationRate = 2.48 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 07, 13), US_InflationRate = 2.56 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 07, 14), US_InflationRate = 2.53 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 07, 15), US_InflationRate = 2.53 },
+        new AreaEmptyChartData { Period = new DateTime(2021, 07, 16), US_InflationRate = 2.52 },
+    };
+
+    public List<SelectionTypes> EmptyPointModeData { get; set; } = new List<SelectionTypes>
+    {
+        new SelectionTypes() { Type = EmptyPointMode.Drop.ToString() },
+        new SelectionTypes() { Type = EmptyPointMode.Average.ToString() },
+        new SelectionTypes() { Type = EmptyPointMode.Zero.ToString() },
+        new SelectionTypes() { Type = EmptyPointMode.Gap.ToString() }
+    };
+
+    private void ChangeEmptyPointMode(Syncfusion.Blazor.DropDowns.ChangeEventArgs<string, SelectionTypes> args)
+    {
+        if (args.Value.ToString().Equals(EmptyPointModeData[1].Type))
+        {
+            Mode = EmptyPointMode.Average;
+        }
+        else if (args.Value.ToString().Equals(EmptyPointModeData[2].Type))
+        {
+            Mode = EmptyPointMode.Zero;
+            Minimum = 0;
+            Interval = 0.5;
+        }
+        else if (args.Value.ToString().Equals(EmptyPointModeData[0].Type))
+        {
+            Mode = EmptyPointMode.Drop;
+        }
+        else if (args.Value.ToString().Equals(EmptyPointModeData[3].Type))
+        {
+            Mode = EmptyPointMode.Gap;
+        }
+
+        if (!args.Value.ToString().Equals(EmptyPointModeData[2].Type))
+        {
+            Minimum = 2.3;
+            Interval = 0.1;
+        }
+    }
+
+    public class SelectionTypes
+    {
+        public string Type { get; set; }
+    }
+
+    public class AreaEmptyChartData
+    {
+        public DateTime Period { get; set; }
+        public double? US_InflationRate { get; set; }
+    }
+}

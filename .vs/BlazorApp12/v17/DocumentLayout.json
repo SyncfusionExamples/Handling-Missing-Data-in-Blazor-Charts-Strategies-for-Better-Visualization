@@ -5,6 +5,22 @@
     {
       "AbsoluteMoniker": "D:0:0:{0EAC7FD0-E664-4CAC-A3B0-35A91A9CC453}|BlazorApp12.csproj|d:\\githubsamples\\948990-blog\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{0EAC7FD0-E664-4CAC-A3B0-35A91A9CC453}|BlazorApp12.csproj|solutionrelative:components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EAC7FD0-E664-4CAC-A3B0-35A91A9CC453}|BlazorApp12.csproj|d:\\githubsamples\\948990-blog\\components\\pages\\chart.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0EAC7FD0-E664-4CAC-A3B0-35A91A9CC453}|BlazorApp12.csproj|solutionrelative:components\\pages\\chart.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EAC7FD0-E664-4CAC-A3B0-35A91A9CC453}|BlazorApp12.csproj|d:\\githubsamples\\948990-blog\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EAC7FD0-E664-4CAC-A3B0-35A91A9CC453}|BlazorApp12.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EAC7FD0-E664-4CAC-A3B0-35A91A9CC453}|BlazorApp12.csproj|d:\\githubsamples\\948990-blog\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0EAC7FD0-E664-4CAC-A3B0-35A91A9CC453}|BlazorApp12.csproj|solutionrelative:components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EAC7FD0-E664-4CAC-A3B0-35A91A9CC453}|BlazorApp12.csproj|d:\\githubsamples\\948990-blog\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0EAC7FD0-E664-4CAC-A3B0-35A91A9CC453}|BlazorApp12.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,11 +30,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\GitHubSamples\\948990-Blog\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\GitHubSamples\\948990-Blog\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-11T10:00:09.534Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Chart.razor",
+              "DocumentMoniker": "D:\\GitHubSamples\\948990-Blog\\Components\\Pages\\Chart.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Chart.razor",
+              "ToolTip": "D:\\GitHubSamples\\948990-Blog\\Components\\Pages\\Chart.razor",
+              "RelativeToolTip": "Components\\Pages\\Chart.razor",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAQwJAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-02T09:38:16.775Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -28,10 +70,34 @@
               "RelativeDocumentMoniker": "Components\\App.razor",
               "ToolTip": "D:\\GitHubSamples\\948990-Blog\\Components\\App.razor",
               "RelativeToolTip": "Components\\App.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAABzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-25T13:48:43.678Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\GitHubSamples\\948990-Blog\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "D:\\GitHubSamples\\948990-Blog\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-09T07:03:34.366Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "D:\\GitHubSamples\\948990-Blog\\Components\\Layout\\NavMenu.razor",
+              "RelativeDocumentMoniker": "Components\\Layout\\NavMenu.razor",
+              "ToolTip": "D:\\GitHubSamples\\948990-Blog\\Components\\Layout\\NavMenu.razor",
+              "RelativeToolTip": "Components\\Layout\\NavMenu.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-09T10:03:36.885Z"
             }
           ]
         }
