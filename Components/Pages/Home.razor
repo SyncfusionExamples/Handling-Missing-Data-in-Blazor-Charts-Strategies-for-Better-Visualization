@@ -25,11 +25,10 @@
             <ChartAxisLineStyle Width="0"></ChartAxisLineStyle>
         </ChartPrimaryYAxis>
         <ChartSeriesCollection>
-            <ChartSeries DataSource="@ChartPoints" Name="US_InflationRate" XName="Period" Width="2"
+            <ChartSeries DataSource="@ChartPoints" XName="Period" Width="2"
             Opacity="0.5" YName="US_InflationRate" Type="ChartSeriesType.Area">
                 <ChartEmptyPointSettings Mode="@Mode"></ChartEmptyPointSettings>
-                <ChartSeriesBorder Width="2"></ChartSeriesBorder>
-                <ChartMarker IsFilled="true" Visible="true" Height="7" Width="7"></ChartMarker>
+                <ChartSeriesBorder Width="4"></ChartSeriesBorder>
             </ChartSeries>
         </ChartSeriesCollection>
     </SfChart>
